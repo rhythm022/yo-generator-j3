@@ -74,7 +74,11 @@ module.exports = class extends Generator {
       this.destinationPath('.nycrc'),
       answers
     );
-
+    this.fs.copyTpl(
+      this.templatePath('.eslintrc.js'),
+      this.destinationPath('.eslintrc.js'),
+      answers
+    );
 
     await this.addDevDependencies([
       '@babel/core',
@@ -87,7 +91,8 @@ module.exports = class extends Generator {
       '@babel/register',
       'nyc',
       'babel-plugin-istanbul',
-      '@istanbuljs/nyc-config-babel'
+      '@istanbuljs/nyc-config-babel',
+      'eslint'
     ])
   }
 };
