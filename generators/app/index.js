@@ -49,7 +49,11 @@ module.exports = class extends Generator {
       this.destinationPath('src/index.html'),
       answers
     );
-
+    this.fs.copyTpl(
+      this.templatePath('test'),
+      this.destinationPath('test'),
+      answers
+    );
     this.fs.copyTpl(
       this.templatePath('package.json'),
       this.destinationPath('package.json'),
@@ -65,15 +69,25 @@ module.exports = class extends Generator {
       this.destinationPath('babel.config.json'),
       answers
     );
+    this.fs.copyTpl(
+      this.templatePath('.nycrc'),
+      this.destinationPath('.nycrc'),
+      answers
+    );
 
 
-    await this.addDependencies([
+    await this.addDevDependencies([
       '@babel/core',
       '@babel/preset-env',
       'babel-loader',
       'webpack-cli',
       'copy-webpack-plugin',
-      'http-server'
+      'http-server',
+      'mocha',
+      '@babel/register',
+      'nyc',
+      'babel-plugin-istanbul',
+      '@istanbuljs/nyc-config-babel'
     ])
   }
 };

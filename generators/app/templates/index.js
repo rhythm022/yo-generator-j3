@@ -4,4 +4,4 @@ for(let i of [1,2,3]){
     console.log(i)
 }
 
-console.log(a+b)
+export const c = a()+b

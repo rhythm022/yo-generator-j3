@@ -5,11 +5,10 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack-cli",
-    "start":"http-server ./dist & webpack --watch"
+    "start":"http-server ./dist & webpack --watch",
+    "test": "mocha --require @babel/register",
+    "coverage":"nyc mocha --require @babel/register"
   },
   "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "yeoman-generator": "^5.6.1"
-  }
+  "license": "ISC"
 }
